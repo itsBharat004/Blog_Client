@@ -29,7 +29,7 @@ const SingleArtical = () => {
     })
     .then((res)=>setData(res.data));
       console.log(data);
-  },[])
+  },[Id])
 
 
   // for Blog in the single page

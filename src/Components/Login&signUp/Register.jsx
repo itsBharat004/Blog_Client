@@ -13,7 +13,7 @@ const Register = () => {
   const [submit, setSubmit] = useState(false);
   const [response, setResponse] = useState("");
   useEffect(() => {
-    // const baseUrl = "https://handson4-server.onrender.com/Register";
+
     const baseUrl="https://blog-server-mm8b.onrender.com/Register";
     // const baseUrl="http://localhost:4040/Register";
     axios.post(baseUrl, formData).then((res) => {

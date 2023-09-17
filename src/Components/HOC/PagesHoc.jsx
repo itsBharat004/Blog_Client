@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 import './PagesHocStyle.css'
 import Navbar from '../Header/Navbar';
@@ -8,7 +8,9 @@ import TopPost from '../Sections/TopPost';
  
 const PagesHoc = () => {
   const Hoc=(props)=>{
-    
+    useEffect(()=>{
+      
+    },[])
     return (
       <>
   <Navbar/>

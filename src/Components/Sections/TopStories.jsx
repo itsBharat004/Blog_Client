@@ -1,11 +1,12 @@
 import React,{useContext,useState} from 'react'
-import { NewsData } from '../Assets/NewsData';
+// import { NewsData } from '../Assets/NewsData';
 import '../Sections/SectionsStyle.css'
 import FilterStoriesData from '../FilterStoriesData';
+import { dataa } from '../Assets/Context';
 const TopStories=(props)=> {
 
 
-    const data=useContext(NewsData);// getting news data 
+    const data=useContext(dataa);// getting news data 
     
     const [load,setLoad]=useState(6)
     // load logic

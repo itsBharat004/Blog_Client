@@ -36,6 +36,7 @@
   margin: 0;
   object-fit: cover;
   margin-top: 10px;
+  width: 97%;
 }
 /* ------------------Top Post------------------------ */
 .TopPost {
@@ -50,13 +51,13 @@
 }
 
 .TopPost > div:nth-child(1) .type5 .storieImages {
-  max-height: 250px;
+  max-height: 400px;
   max-width: 100%;
   object-position: top;
   object-fit: cover;
 }
 .TopPost > div:nth-child(1) .type5 {
-  max-height: 300px;
+  /* max-height: 300px; */
   max-width: 100%;
   object-position: top;
   margin: auto;

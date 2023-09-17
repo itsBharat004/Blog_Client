@@ -1,8 +1,8 @@
 import React, { useContext } from 'react'
-import { NewsData } from '../Assets/NewsData'
+import { dataa } from '../Assets/Context'
 import FilterStoriesData from '../FilterStoriesData'
 const LatestArticle = () => {
-  const data=useContext(NewsData)
+  const data=useContext(dataa)
 // console.log(data)
 const random=()=>{
   return Math.floor((Math.random()*74)+1);

@@ -1,9 +1,10 @@
 import React,{useContext} from 'react'
-import { NewsData } from './Assets/NewsData'
+// import { NewsData } from './Assets/NewsData'
+import { dataa } from './Assets/Context';
 import Stories from './GenericComonents/Stories';
 import ErrorHandler from '../Pages/ErrorHandler'
 function FilterStoriesData(props) {
-  const data=useContext(NewsData)[props.id-1];
+  const data=useContext(dataa)[props.id-1];
 //  console.log(props)
 //   console.log("nic",data.heading,props.type)
 if(props.type==="type1"){

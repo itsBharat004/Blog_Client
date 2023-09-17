@@ -21,6 +21,11 @@ function Navigation() {
 
         }
     }
+    
+    const [token,setToken] =useState(localStorage.getItem("token"));
+    const handleLogOut=()=>{
+      setToken(localStorage.removeItem("token"));
+    }
   return (
     <>
     <div className='hamburger' onClick={handleClick}>
@@ -35,6 +40,9 @@ function Navigation() {
     <NavLink  onClick={handleClick} to='/Technology'style={({ isActive }) => ({  color: isActive ? 'rgb(20, 166, 239)' : 'black' })} >Technology</NavLink>
     <NavLink  onClick={handleClick} to='/Fitness'   style={({ isActive }) => ({  color: isActive ? 'rgb(20, 166, 239)' : 'black' })} >Fitness</NavLink>
     <NavLink  onClick={handleClick} to='/Food'      style={({ isActive }) => ({  color: isActive ? 'rgb(20, 166, 239)' : 'black' })} >Food</NavLink>
+    {!token && <NavLink  onClick={handleClick} to='/Login'     className="registerBtn">Login</NavLink>}
+    {!token && <NavLink  onClick={handleClick} to='/Register'  className="registerBtn">signUp</NavLink>}
+    {token && <div  onClick={handleLogOut} to='/Register'  className="registerBtn">Log out</div>}
   </div>
 
 

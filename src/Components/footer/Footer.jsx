@@ -5,6 +5,12 @@ import { Facebook, Instagram, LinkedIn, Twitter } from "@mui/icons-material"
 import CopyrightIcon from '@mui/icons-material/Copyright';
 import { Link } from "react-router-dom"
 const Footer = () => {
+  const handleClick=()=>{
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    })
+  }
   return (
     
       <div className="footer">
@@ -20,12 +26,12 @@ const Footer = () => {
           {/* constainer 2*/}
           <div className="footerContainer">
       <h1 className="fotterSiren">Services</h1>
-      <Link to='/'        className='FooterNonActiveNav'>Home</Link>
-    <Link to='/Bollywood' className='FooterNonActiveNav'>Bollywood</Link>
-    <Link to='/Hollywood' className='FooterNonActiveNav'>Hollywood</Link>
-    <Link to='/Technology'className='FooterNonActiveNav'>Technology</Link>
-    <Link to='/Fitness'   className='FooterNonActiveNav'>Fitness</Link>
-    <Link to='/Food'      className='FooterNonActiveNav' >Food</Link>
+      <Link to='/'         onClick={handleClick} className='FooterNonActiveNav'>Home</Link>
+    <Link to='/Bollywood'  onClick={handleClick} className='FooterNonActiveNav'>Bollywood</Link>
+    <Link to='/Hollywood'  onClick={handleClick} className='FooterNonActiveNav'>Hollywood</Link>
+    <Link to='/Technology' onClick={handleClick} className='FooterNonActiveNav'>Technology</Link>
+    <Link to='/Fitness'    onClick={handleClick} className='FooterNonActiveNav'>Fitness</Link>
+    <Link to='/Food'       onClick={handleClick} className='FooterNonActiveNav' >Food</Link>
       </div>
       {/* constainer 3 */}
       <div className="footerContainer">

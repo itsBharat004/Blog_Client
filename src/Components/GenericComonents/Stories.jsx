@@ -2,22 +2,22 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import './StoriesStyle.css'
 import PostedBy from './PostedBy'
+import Login from '../Login&signUp/Login'
 const Stories = (props) => {
-  // console.log(props?.heading?.split(' ').slice(1,10).join(' '));
-  // console.log(props?.description);
-  // console.log(props?.date?.split(' ').slice(1,10).join(' '));
-  // console.log(props?.categories);
-  // console.log(props?.id);
 const navigate=useNavigate();
-// props=date,heading.type,postBy,cat,description,id
+const token =localStorage.getItem("token");
 const OpenSingleArtical=()=>{
-// console.log(props)
-  navigate(`/${props?.categories}/${props?.id}`)
+window.scrollTo({
+  top: 0,
+  behavior: "smooth",
+})
+console.log(token);
+token? navigate(`/${props?.categories}/${props?.id}`):navigate(`/Login`)
 }
-// console.log(props.counter)
+
   return (
     
-    <div className={props.type} id={"stories"}>
+    <div className={props.type} id={"stories"} >
       <img className="storieImages" onClick={OpenSingleArtical} src= {props?.images} alt='Not Found'/>
       <div className="storieHeading" onClick={OpenSingleArtical}>{props?.heading?.split(' ').slice(0,6).join(' ')+"..."}</div>
       {(props.type==='type6')&& <PostedBy/>}

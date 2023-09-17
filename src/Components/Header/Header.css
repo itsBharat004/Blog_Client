@@ -42,7 +42,25 @@ cursor: pointer;
   align-items: center;
 }
 
+/* for login btns */
+.registerBtn{
+  width:fit-content;
+  padding:2px;
+  height: 30px;
 
+  border-radius: 4px;
+  background: #007bff;
+  display: flex;
+  color: white;
+  border: 1.3px solid black;
+}
+.registerBtn:hover{
+  background: #0e72dc;
+  display: flex;
+  color: white;
+  border: 1.3px solid black;
+  cursor: pointer;
+}
 
 /* -------------for hamburger---------------- */
 .hamburger {
@@ -63,6 +81,14 @@ cursor: pointer;
     display: flex;
     justify-content: center;
     margin: 0px;
+  }
+  .registerBtn{
+    width:fit-content;
+    padding:2px;
+    border-radius: 4px;
+    background: #ffffff;
+    display: flex;
+    color: rgb(0, 0, 0);
   }
   .siren {
     font: normal normal bold 35px/29px Montserrat;

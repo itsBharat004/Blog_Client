@@ -6,11 +6,13 @@ import LatestArticle from '../Components/Sections/LatestArticle'
 import TheLatest from '../Components/Sections/TheLatest'
 import LatestStories from '../Components/Sections/LatestStories'
 import TopPost from '../Components/Sections/TopPost'
+import Context from '../Components/Assets/Context'
 function Home() {
 
   return (
 
  <>
+ <Context/>
     <Navbar/>
 <HeaderImage/>
 <div className="upper">

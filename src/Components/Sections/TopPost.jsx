@@ -1,13 +1,14 @@
 import React,{useContext,useState} from 'react'
-import { NewsData } from '../Assets/NewsData';
+// import { NewsData } from '../Assets/NewsData';
 import '../Sections/SectionsStyle.css'
 import FilterStoriesData from '../FilterStoriesData';
+import { dataa } from '../Assets/Context';
 function TopPost(props) {
-const data=useContext(NewsData);// getting news data 
+const data=useContext(dataa);// getting news data 
 
     // console.log(count)
     function generateRandom(){
-      return (props.isHome)?props?.initialIds+Math.floor(Math.random()*74): props?.initialIds+Math.floor(Math.random()*14)
+      return (props.isHome)? props?.initialIds+Math.floor(Math.random()*74): props?.initialIds+Math.floor(Math.random()*14)
     }
     return (
     <div className="TopPost">

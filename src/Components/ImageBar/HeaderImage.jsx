@@ -1,8 +1,9 @@
 import React,{useContext,useState,useEffect} from 'react'
 import './HeaderImageStyle.css'
-import { NewsData } from '../Assets/NewsData'
+// import { NewsData } from '../Assets/NewsData'
+import { dataa } from '../Assets/Context'
 function HeaderImage() { 
-const data=useContext(NewsData)
+const data=useContext(dataa)
 // 1-75
 const randomGenerator=()=>{
   return Math.floor(Math.random()*74) +1;

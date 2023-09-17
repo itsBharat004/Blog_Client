@@ -1,7 +1,6 @@
-import React, { useContext, useMemo, useState } from "react";
+import React, { useEffect,useState } from "react";
 import {  useParams , useNavigate} from "react-router-dom";
 import Top from "../Header/Top";
-import { NewsData } from "../Assets/NewsData";
 import './SingleAritcalStyle.css'
 import PostedBy from "./PostedBy";
 import FacebookIcon from '@mui/icons-material/Facebook';
@@ -9,13 +8,27 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import FilterStoriesData from "../FilterStoriesData";
+import axios from "axios";
+import FallBack from "./FallBack";
 
 const SingleArtical = () => {
   const NewsArrayIndex = useParams();
   const navigate=useNavigate();//for back functionality
   const Id=NewsArrayIndex.NewsId-1;//for selecting that arr from Context API
-  const data = useContext(NewsData);//form context API
-  
+  // const data = useContext(dataa);//form context API
+  const [data,setData] = useState("");//form context API
+  const [token]=useState(localStorage.getItem("token"));
+  useEffect(()=>{
+
+      let baseUrl=`http://localhost:4040/${Id}`;
+      axios.get(baseUrl,{
+        headers:{
+            "authorization":"bearer "+token
+                 }
+    })
+    .then((res)=>setData(res.data));
+      console.log(data);
+  },[])
 
 
   // for Blog in the single page
@@ -23,6 +36,10 @@ const SingleArtical = () => {
  const TextView=()=>{
   (wordsToShow)?setWordsToShow(undefined)://increase text
   setWordsToShow(50);// decrese text
+  !wordsToShow&& window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  })
  } 
  
 //  more from siren random image logic 
@@ -33,13 +50,15 @@ const RandomImg2= Math.floor(NewsArrayIndex.NewsId/15.01 )*15+Math.floor(Math.ra
 const RandomImg3=  Math.floor(NewsArrayIndex.NewsId/15.01 )*15+Math.floor(Math.random()*14)+1
 
 //for back functionality
-function handleBack(){
+const handleBack=()=>{
   navigate(-1);
 }
 // onclicking on MORE from serien
 
 
   return (
+    <>
+    {token?
     <div>
       <div className="SingleAritcalHeader">
         <button className="SingleAritcalBack" onClick={handleBack}>
@@ -60,7 +79,7 @@ function handleBack(){
           </span>
         </div>
       <div className="SingleAritcalBody">
-    <div className="SingleAritcalHeading">{data[Id].heading}</div>
+    <div className="SingleAritcalHeading">{data&& data.heading}</div>
     <div className="writer">
       <PostedBy/>
       <div className="socialMedia">
@@ -70,9 +89,9 @@ function handleBack(){
         <YouTubeIcon style={{color:'white',borderRadius:"5px", backgroundColor:"grey",marginRight:'10px',fontSize:"20px"}}/>
       </div>
     </div>
-    <img className="SingleAritcalImage" src={data[Id].images} alt="Not Found"/>
+    <img className="SingleAritcalImage" src={data&& data.images} alt="Not Found"/>
     <div className="SingleAritcalDescription">
-      {data[Id].description.split(' ').slice(0,wordsToShow).join(' ')}
+      {data&& data.description.split(' ').slice(0,wordsToShow).join(' ')}
      {(wordsToShow)? <div onClick={TextView} className="showMore">⬇️ Show More</div>:<div onClick={TextView} className="showLess" >⬆️ Show Less</div>}
       </div>
     <div className="writerInfo">
@@ -97,7 +116,8 @@ function handleBack(){
   </div>
    
 
-    </div>
+    </div>:<FallBack/>}
+    </>
   );
 };
 

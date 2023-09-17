@@ -20,7 +20,8 @@ const SingleArtical = () => {
   const [token]=useState(localStorage.getItem("token"));
   useEffect(()=>{
 
-      let baseUrl=`http://localhost:4040/${Id}`;
+      let baseUrl=`https://blog-server-mm8b.onrender.com/${Id}`;
+      // let baseUrl=`http://localhost:4040/${Id}`;
       axios.get(baseUrl,{
         headers:{
             "authorization":"bearer "+token

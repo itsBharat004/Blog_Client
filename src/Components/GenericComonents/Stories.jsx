@@ -2,7 +2,6 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import './StoriesStyle.css'
 import PostedBy from './PostedBy'
-import Login from '../Login&signUp/Login'
 const Stories = (props) => {
 const navigate=useNavigate();
 const token =localStorage.getItem("token");

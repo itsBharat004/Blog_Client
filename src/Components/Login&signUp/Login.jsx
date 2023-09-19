@@ -13,7 +13,8 @@ const Login = () => {
   const [submit, setSubmit] = useState(false);
   const [response, setResponse] = useState("");
   useEffect(() => {
-    const baseUrl = "https://blog-server-mm8b.onrender.com/Login";
+    const baseUrl = `${import.meta.env.VITE_ULR}/Login`;
+    // const baseUrl = "https://blog-server-mm8b.onrender.com/Login";
     // const baseUrl = "http://localhost:4040/Login";
     
     axios.post(baseUrl, formData).then((res) => {
@@ -51,6 +52,7 @@ const Login = () => {
      },2000) 
   }
 )();
+
   return (
     <>
        <div className="registrationHeader">

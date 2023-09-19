@@ -13,8 +13,8 @@ const Register = () => {
   const [submit, setSubmit] = useState(false);
   const [response, setResponse] = useState("");
   useEffect(() => {
-
-    const baseUrl="https://blog-server-mm8b.onrender.com/Register";
+    const baseUrl = `${import.meta.env.VITE_ULR}/Register`;
+    // const baseUrl="https://blog-server-mm8b.onrender.com/Register";
     // const baseUrl="http://localhost:4040/Register";
     axios.post(baseUrl, formData).then((res) => {
       setResponse(res.data);

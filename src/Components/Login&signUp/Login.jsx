@@ -7,8 +7,6 @@ import Top from "../Header/Top";
 const Login = () => {
   const navigate = useNavigate();
   const [formData, setFromData] = useState({
-    name: "",
-    phoneNo: "",
     email: "",
     password: "",
   });
@@ -30,10 +28,8 @@ const Login = () => {
     e.preventDefault();
 
     if (
-      formData.name != 0 &&
       formData.email != 0 &&
-      formData.password != 0 &&
-      formData.phoneNo != 0
+      formData.password != 0
     ) {
       setSubmit(!submit);
     
@@ -46,8 +42,6 @@ const Login = () => {
   response.token&&(function goToDashboard  (){
     setTimeout(()=>{
       setFromData({
-        name: "",
-        phoneNo: "",
         email: "",
         password: "",
       })
@@ -72,33 +66,11 @@ const Login = () => {
 
           <form className="register">
             <h1 className="registerHeading">Login Page</h1>
-            <fieldset>
-              <legend>Name</legend>
-              {/* Name, Phone, Email and Password */}
-              <input
-                type="text"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                placeholder="Enter your Name"
-                required
-              />
-            </fieldset>
-            <fieldset>
-              <legend>Phone number</legend>
-              {/* Name, Phone, Email and Password */}
-              <input
-                type="text"
-                name="phoneNo"
-                value={formData.phoneNo}
-                onChange={handleChange}
-                placeholder="Enter your Phone number"
-                required
-              />
-            </fieldset>
+          
+        
             <fieldset>
               <legend>Email</legend>
-              {/* Name, Phone, Email and Password */}
+              {/* Email and Password */}
               <input
                 type="email"
                 name="email"
@@ -123,7 +95,7 @@ const Login = () => {
             {/* <div className="message">Your are already registered</div> */}
             <div className="message">{response && response.message}</div>
             <button className="registerButton " onClick={handleClick}>
-              Submit 
+              Login 
             </button>
             <div className="goto">
               go to <Link className="link" to={"/Register"}>Register page</Link>

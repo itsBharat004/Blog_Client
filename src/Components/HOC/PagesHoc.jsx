@@ -22,7 +22,7 @@ const PagesHoc = () => {
 <div className="TopPostPage">
 <span >TopPost</span>
 <TopPost initialIds={props.initialIds}/>
-<img className="adv" style={{objectFit:"contain" ,height:"300px"}} alt="not found"src="https://mediasamosa.com/wp-content/uploads/2020/01/printad-696x985.jpg"/>
+<img className="adv" style={{objectFit:"contain" ,height:"300px"}} alt="not found"src="https://cdn.dribbble.com/users/2053153/screenshots/6127364/mcdonaldsad_1551722682294.png"/>
 
 </div>
     </div>

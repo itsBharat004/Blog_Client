@@ -56,12 +56,13 @@ const RandomImg3=  Math.floor(NewsArrayIndex.NewsId/15.01 )*15+Math.floor(Math.r
 const handleBack=()=>{
   navigate(-1);
 }
-// onclicking on MORE from serien
-
-
+//check is our token is expire or not
+// let isTokenActive=window.atob(token.split(".")[1]);
+// let temp=JSON.parse(isTokenActive);
+console.log(data)
   return (
     <>
-    {token?
+    {!(data.err==="token expired")?
     <div>
       <div className="SingleAritcalHeader">
         <button className="SingleAritcalBack" onClick={handleBack}>

@@ -6,10 +6,10 @@
         flex-wrap: wrap;
 }
 .topStoriesPage{
-    width: 50%;
+    width: 65%;
 }
 .TopPostPage{
-    width: 50%;
+    width: 35%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;

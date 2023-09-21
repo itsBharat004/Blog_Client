@@ -6,6 +6,9 @@
   
   margin-left: 10px;
 }
+.storieDate{
+  font-size: 12px !important;
+}
 #stories{
   margin-bottom: 15px;
 }
@@ -25,8 +28,11 @@
 .type1 img,
 .type3 img {
   max-width: 250px;
-  max-height: 70%;
+  max-height: 210px;
   margin-top: 10px;
+}
+.type3>.storieDate{
+ max-width: 250px;
 }
 /* ---------------type2 ------------------ */
 

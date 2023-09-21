@@ -8,8 +8,9 @@
 .TopStories img {
   object-fit: cover;
 }
-.TopStories > div:not(:nth-last-child(1), :nth-child(1)) {
+.topStoriesPage>div:not( :nth-of-type(1)) {
   border-top: 1px solid rgb(197, 195, 195);
+
 }
 /* ------------------LatestArticle------------------------ */
 .LatestArticle {
@@ -51,7 +52,13 @@
 }
 
 .TopPost > div:nth-child(1) .type5 .storieImages {
-  max-height: 400px;
+  height: 200px;
+  max-width: 100%;
+  object-position: top;
+  object-fit: cover;
+}
+.TopPostHome>.TopPost>div:nth-child(1) .type5 .storieImages {
+  height: 100px !important;
   max-width: 100%;
   object-position: top;
   object-fit: cover;
@@ -68,6 +75,14 @@
   grid-template-rows: 50% 50%;
   grid-template-columns: 30% 70%;
   height: 100px;
+}
+.TopPost > div:nth-child(1){
+  height: 286px;
+
+}
+.TopPostHome>.TopPost > div:nth-child(1){
+  height: 120px;
+
 }
 .TopPost > div:not(:nth-child(1)) .type5 .storieImages {
   grid-area: 1/1/3/2;
@@ -105,14 +120,7 @@ color: aqua;
   justify-content: space-around;
   /* align-items: ; */
 }
-.LatestStories .type2:hover,
-.TheLatest .type3:hover{
-  box-shadow: 4px 2px 4px 0.7px rgb(182, 176, 176);
-  transform: translate(2px,-2px);
-  border-radius:20px ;
- padding: 4px;
 
-  }
 /* .LatestStories .type2 img,
 .TheLatest .type3 img{
   border-radius:20px ;

@@ -1,13 +1,15 @@
 
 .mid{
     display: flex;
+  width: 90%;
+  margin: auto;
   
 }
 .mid .midFirst{
-    width: 50%;
+    width: 65%;
 }
 .mid .midSecond{
-    width: 50%;
+    width: 35%;
 }
 .mid .midSecond .adv{
     height: 456px;

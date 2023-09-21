@@ -18,7 +18,7 @@ token? navigate(`/${props?.categories}/${props?.id}`):navigate(`/Login`)
     
     <div className={props.type} id={"stories"} >
       <img className="storieImages" onClick={OpenSingleArtical} src= {props?.images} alt='Not Found'/>
-      <div className="storieHeading" onClick={OpenSingleArtical}>{props?.heading?.split(' ').slice(0,6).join(' ')+"..."}</div>
+      <div className="storieHeading" onClick={OpenSingleArtical}>{props?.heading?.split(' ').slice(0,5).join(' ')+"..."}</div>
       {(props.type==='type6')&& <PostedBy/>}
       <div className="storieDescription">{props?.description &&props?.description?.split(' ').slice(0,props?.descriptionLength).join(' ') +"..."}</div>
       <div className="storiePostBy">{props?.postBy}</div>

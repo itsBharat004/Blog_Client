@@ -1,9 +1,17 @@
 import React, { useEffect, useState } from "react";
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
+import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
+import LocalPhoneOutlinedIcon from '@mui/icons-material/LocalPhoneOutlined';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import "./Registration.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Top from "../Header/Top";
+import Lock from "@mui/icons-material/Lock";
 const Register = () => {
+  const navigate=useNavigate();
   const [formData, setFromData] = useState({
     name: "",
     phoneNo: "",
@@ -43,12 +51,20 @@ const Register = () => {
       setResponse({ message: "fill the form" });
     }
   };
+  const tostNotify=()=> toast("Registration successfull");
+  
+  response.token&&(function goToDashboard  (){
+    tostNotify();
+    setTimeout(()=>{
+      console.log("settimeout")
+      navigate("/Login");
+    },2000) 
+  }
+  )();
   return (
     <>
-      <div className="registrationHeader">
-    
+      <div className="registrationHeader"> 
     <Top />
-
   </div>
     <div className="registration">
       <div className="registerContainer">
@@ -59,6 +75,8 @@ const Register = () => {
           <fieldset>
             <legend>Name</legend>
             {/* Name, Phone, Email and Password */}
+            {/* <PersonIcon/> */}
+            <PersonOutlineOutlinedIcon/>
             <input
               type="text"
               name="name"
@@ -71,6 +89,8 @@ const Register = () => {
           <fieldset>
             <legend>Phone number</legend>
             {/* Name, Phone, Email and Password */}
+            {/* <LocalPhoneIcon/> */}
+            <LocalPhoneOutlinedIcon/>
             <input
               type="text"
               name="phoneNo"
@@ -83,6 +103,8 @@ const Register = () => {
           <fieldset>
             <legend>Email</legend>
             {/* Name, Phone, Email and Password */}
+            {/* <EmailIcon/> */}
+            <EmailOutlinedIcon/>
             <input
               type="email"
               name="email"
@@ -95,6 +117,8 @@ const Register = () => {
           <fieldset>
             <legend>Password</legend>
             {/* Name, Phone, Email and Password */}
+            {/* <LockIcon/> */}
+            <LockOutlinedIcon/>
             <input
               type="password"
               name="password"
@@ -115,7 +139,21 @@ const Register = () => {
         </form>
       </div>
     </div>
+        
+    <ToastContainer 
+    position="top-right"
+autoClose={1000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+theme="light" />
+             
               </>
+
   );
 };
 

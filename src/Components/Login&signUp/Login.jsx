@@ -1,4 +1,8 @@
 import React, { useEffect, useState } from "react";
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 // import img from "../assets/img.jpg";
 import "./Registration.css";
 import { Link, useNavigate } from "react-router-dom";
@@ -40,25 +44,27 @@ const Login = () => {
     }
 
   };
+  const tostNotify=()=> toast("you are login in");
+  
   response.token&&(function goToDashboard  (){
+    tostNotify();
     setTimeout(()=>{
       setFromData({
         email: "",
         password: "",
       })
       localStorage.setItem("token", response.token);
-    navigate("/");
+      navigate("/");
       
-     },2000) 
+    },2000) 
   }
-)();
-
+  )();
+ 
   return (
     <>
        <div className="registrationHeader">
     
         <Top />
-
       </div>
     <div className="registration">
      
@@ -73,6 +79,7 @@ const Login = () => {
             <fieldset>
               <legend>Email</legend>
               {/* Email and Password */}
+              <EmailOutlinedIcon/>
               <input
                 type="email"
                 name="email"
@@ -85,6 +92,7 @@ const Login = () => {
             <fieldset>
               <legend>Password</legend>
               {/* Name, Phone, Email and Password */}
+              <LockOutlinedIcon/>
               <input
                 type="password"
                 name="password"
@@ -106,6 +114,17 @@ const Login = () => {
         </div>
      
     </div>
+    <ToastContainer 
+    position="top-right"
+autoClose={1000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+theme="light" />
     </>
 
   );

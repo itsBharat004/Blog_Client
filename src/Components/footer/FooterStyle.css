@@ -8,6 +8,9 @@
   justify-content: space-evenly;
   
 }
+.fotterBlogExplaine{
+ text-align: center;
+}
 .footerContainer{
   width: 20%;
   display: flex;

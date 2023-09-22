@@ -7,12 +7,11 @@ const Context = ({ children }) => {
   const [arrObj, setArrObj] = useState("");
   const [loading,setLoading]=useState(true);
 
-  useEffect(() => {
+  useEffect(async() => {
     const baseUrl = `${import.meta.env.VITE_ULR}/Artical`;
     // const baseUrl = "https://blog-server-mm8b.onrender.com/Artical";
     // const baseUrl="http://localhost:4040/Artical";
-    axios.get(baseUrl).then((info) => setArrObj(info.data));
-    console.log(arrObj);
+   await axios.get(baseUrl).then((info) => setArrObj(info.data));
     setLoading(!loading);
    
   }, []);
@@ -31,9 +30,20 @@ const Context = ({ children }) => {
      
     }
   { loading&&
-   <div style={{position:"absolute", left:"50%",top:"50%",transform:"translate(-50%,-50%)"}}>
+   <div 
+   style={
+    {
+    position:"absolute",
+     left:"50%",top:"50%",
+     transform:"translate(-50%,-50%)",
+     display:"flex",
+     flexDirection:"column",
+     alignItems:"center"
+    }
+  }
+   >
 
-     <BeatLoader
+     <BeatLoader 
       color="#0001ff"
       loading={loading}
       speedMultiplier={1}

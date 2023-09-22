@@ -51,7 +51,7 @@ const Context = ({ children }) => {
       loading={loading}
       speedMultiplier={1}
       />
-      <p>the siren blog website</p>
+      <p style={{textAlign:"center"}}>the siren blog website</p>
     </div>}
     </>
   );

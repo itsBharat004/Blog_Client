@@ -53,8 +53,10 @@
 display: flex;
 justify-content: center;
 }
-.SingleAritcalImage{
-  height: 400px;
+.SingleAritcalImage {
+  aspect-ratio: 2/1;
+  /* height: 252px; */
+  /* height: 400px; */
 }
   /* ----------------------middle Container------------------------ */
   .middleContainer{
@@ -251,7 +253,7 @@ overflow: hidden;
   .MoreFromSiren .type6 {
     width: 90%;
     max-width: 500px;
-    height: 30%;
+    height: 100px;
   }
 
 }

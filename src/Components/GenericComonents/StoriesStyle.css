@@ -97,8 +97,10 @@
 
 .storieCounter {
     position: absolute;
-    right: 30px;
-    bottom: 0px;
+    right: 0px;
+    /* right: 30px; */
+    /* bottom: 0px; */
+    bottom:0%;
     z-index: 5;
     color: gray;
     font-size: 40px;
@@ -246,7 +248,7 @@
   .storieCounter {
     position: absolute;
     right: 10px;
-    bottom: 0px;
+    bottom: 20px;
     z-index: 5;
     color: gray;
     font-size: 20px;

@@ -7,18 +7,21 @@ const Context = ({ children }) => {
   const [arrObj, setArrObj] = useState("");
   const [loading,setLoading]=useState(true);
 
-  useEffect(async() => {
+  useEffect(() => {
     const baseUrl = `${import.meta.env.VITE_ULR}/Artical`;
     // const baseUrl = "https://blog-server-mm8b.onrender.com/Artical";
     // const baseUrl="http://localhost:4040/Artical";
-   await axios.get(baseUrl).then((info) => setArrObj(info.data));
-    setLoading(!loading);
+    axios.get(baseUrl)
+    .then((info) => {
+      setArrObj(info.data);
+      setLoading(!loading)});
    
   }, []);
 //   function load(){
 //     setLoading(!loading);
 // console.log(loading);
 //   }
+
   
   return (
     <>

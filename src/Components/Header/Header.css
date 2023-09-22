@@ -157,7 +157,8 @@ cursor: pointer;
 }
   .closeHamburger:nth-child(1) {
     height: 16.6%;
-    background: #a3a1a1;
+    background: #000000;
+    /* background: #a3a1a1; */
     animation: Open1 1s ease-out 0s forwards;
   }
   @keyframes Open1 {
@@ -175,7 +176,8 @@ cursor: pointer;
   }
   .closeHamburger:nth-child(2) {
     height: 16.6%;
-    background: #a3a1a1;
+    /* background: #a3a1a1; */
+    background: #000000;
     animation: Open2 1s ease-out 0s forwards;
     animation-duration: 1s;
   }
@@ -193,7 +195,8 @@ cursor: pointer;
   }
   .closeHamburger:nth-child(3) {
     height: 16.6%;
-    background: #a3a1a1;
+    /* background: #a3a1a1; */
+    background: #000000;
     animation: Open3 1s ease-out 0s forwards;
   }
   @keyframes Open3 {
@@ -216,7 +219,9 @@ cursor: pointer;
     width: 28px;
     height: 16.6%;
     animation: Cross1 1s ease-out 0s forwards;
-    background: #a3a1a1;
+    /* background: #a3a1a1; */
+    background: #000000;
+
   }
 
   @keyframes Cross1 {
@@ -229,7 +234,9 @@ cursor: pointer;
     width: 28px;
     height: 16.6%;
     animation: cross2 0.5s ease-out 0s 1 forwards;
-    background: #a3a1a1;
+    /* background: #a3a1a1; */
+    background: #000000;
+
   }
 
   @keyframes cross2 {

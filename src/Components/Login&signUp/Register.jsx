@@ -6,10 +6,10 @@ import LocalPhoneOutlinedIcon from '@mui/icons-material/LocalPhoneOutlined';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import "./Registration.css";
+import CloseIcon from '@mui/icons-material/Close';
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Top from "../Header/Top";
-import Lock from "@mui/icons-material/Lock";
 const Register = () => {
   const navigate=useNavigate();
   const [formData, setFromData] = useState({
@@ -40,16 +40,48 @@ const Register = () => {
   };
   const handleClick = (e) => {
     e.preventDefault();
-    if (
-      formData.name != 0 &&
-      formData.email != 0 &&
-      formData.password != 0 &&
-      formData.phoneNo != 0
-    ) {
-      setSubmit(!submit);
-    } else {
-      setResponse({ message: "fill the form" });
+    // form validation
+    if (formData.name.length === 0){
+      setResponse({ mess: "Enter your name" });
+      console.log("1")
     }
+    else if (formData.name.split(" ").length <2){
+      setResponse({ mess: "Enter your full name Name" });
+      console.log("1")
+    }
+    else if( formData.phoneNo.length <9 || formData.phoneNo.length >13 ){
+      setResponse({ mess: "enter a valid phone number" });
+      console.log("2")
+
+    }
+   else if ( formData.email.length === 0 ){
+      setResponse({ mess: "Enter your email" });
+      console.log("3")
+
+    }
+    else if(!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(formData.email)){
+      setResponse({ mess: "Invalid email address" });
+      console.log("4")
+
+    }
+    else if(formData.password.length === 0 ){
+      setResponse({ mess: "Enter your password" });
+      console.log("5")
+
+    }
+    else if(formData.password.length <6 || formData.password.length >16 ){
+      setResponse({ mess: "password length must be of 6-15 characters" });
+      console.log("6")
+
+    }
+   
+    else {
+      setSubmit(!submit);
+    } 
+    setTimeout(()=>{
+      setResponse("");
+    
+     },2000)
   };
   const tostNotify=()=> toast("Registration successfull");
   
@@ -128,8 +160,8 @@ const Register = () => {
               required
             />
           </fieldset>
-          {/* <div className="message">Your are already registered</div> */}
-          <div className="message">{response && response.message}</div>
+          {/* <div className="mess">Your are already registered</div> */}
+          {response.mess &&<div className="message"><CloseIcon style={{color:"red"}}/> {response && response.mess}</div>}
           <button className="registerButton" onClick={handleClick}>
             Submit
           </button>
@@ -150,7 +182,7 @@ rtl={false}
 pauseOnFocusLoss
 draggable
 pauseOnHover
-theme="light" />
+theme="dark" />
              
               </>
 

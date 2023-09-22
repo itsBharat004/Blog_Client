@@ -94,6 +94,19 @@ input[type="password"] {
   /* border-radius: 6px;
   border-bottom:2px solid rgb(197, 195, 195) ; */
 }
+.Toastify__toast--default {
+  /* background: #0032fb; */
+  color: #ffffff;
+  background: #007bff;
+  /* background: rgb(0, 191, 255); */
+}
+.Toastify__toast-container {
+  width: 320px;
+}
+.Toastify__progress-bar-theme--dark {
+  background: #fdfdfd !important;
+}
+
 
 .registerButton {
   background-color: #007bff;
@@ -113,6 +126,11 @@ button:hover {
 }
 .message {
   margin-top: 10px;
+  color: rgb(255, 0, 0);
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  padding: 2px 5px;
 }
 
 .link {

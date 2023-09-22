@@ -8,6 +8,8 @@ import "./Registration.css";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Top from "../Header/Top";
+import CloseIcon from '@mui/icons-material/Close';
+
 const Login = () => {
   const navigate = useNavigate();
   const [formData, setFromData] = useState({
@@ -31,17 +33,26 @@ const Login = () => {
   };
   const handleClick = (e) => {
     e.preventDefault();
-
-    if (
-      formData.email != 0 &&
-      formData.password != 0
-    ) {
-      setSubmit(!submit);
-    
-      // goToDashboard();
-    } else {
-      setResponse({ message: "fill the form" });
+// form validation
+    if ( formData.email.length == 0 ){
+      setResponse({ mess: "Enter your email" });
     }
+    else if(!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(formData.email)){
+      setResponse({ mess: "Invalid email address" });
+    }
+    else if(formData.password.length == 0 ){
+      setResponse({ mess: "Enter your password" });
+    }
+    else if(formData.password.length <6 || formData.password.length >16 ){
+      setResponse({ mess: "password length must be of 6-15 characters" });
+    }
+    else {
+      setSubmit(!submit);
+    } 
+ setTimeout(()=>{
+  setResponse("");
+
+ },2000)
 
   };
   const tostNotify=()=> toast("you are login in");
@@ -102,8 +113,8 @@ const Login = () => {
                 required
               />
             </fieldset>
-            {/* <div className="message">Your are already registered</div> */}
-            <div className="message">{response && response.message}</div>
+            {/* <div className="mess">Your are already registered</div> */}
+           { response.mess &&  <div className="message"><CloseIcon style={{color:"red"}}/>{response && response.mess}</div>}
             <button className="registerButton " onClick={handleClick}>
               Login 
             </button>
@@ -124,7 +135,7 @@ rtl={false}
 pauseOnFocusLoss
 draggable
 pauseOnHover
-theme="light" />
+theme="dark" />
     </>
 
   );

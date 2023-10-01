@@ -43,9 +43,9 @@ const Footer = () => {
       {/* constainer 4*/}
       <div className="footerContainer">
       <h1 className='readMore'>More</h1>
-       <a href="tel:23233244" target="_blank">+9123456789</a>
+       <a href="tel:23233244" target="_blank">+919953152275</a>
        <a href="mailto:@yashgupta1mole@gmail.com" target="_blank">mail us</a>
-      <div className="copyRight"> <CopyrightIcon/>Made by Yash Gupta</div>
+      <div className="copyRight"> <CopyrightIcon/>Made by Bharat Singh Rawat</div>
       </div>
       </div>
   
